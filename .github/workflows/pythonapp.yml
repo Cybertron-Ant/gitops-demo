@@ -14,5 +14,5 @@ jobs:
       - name: Build & Push Image
         run: |
           echo "Password123" | docker login -u "antonio4" --password-stdin
-          docker image build -t myimagetag/pyflask:latest .
+          docker image build -t antonio4/pyflask:latest .
           docker push antonio4/pyflask:latest
