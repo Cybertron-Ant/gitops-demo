@@ -2,19 +2,18 @@ name: Python application
 
 on:
   push:
-   branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
       
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v1
-    - name: Build & Push Image
-      run: |
-        echo "Password123" | docker login -u "antonio4" --password-stdin
-        docker image build -t myimagetag/pyflask:latest .
-        docker push dab8106/pyflask:latest
+      - uses: actions/checkout@v1
+      - name: Build & Push Image
+        run: |
+          echo "Password123" | docker login -u "antonio4" --password-stdin
+          docker image build -t myimagetag/pyflask:latest .
+          docker push myimagetag/pyflask:latest
+          
