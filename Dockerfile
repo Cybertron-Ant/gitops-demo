@@ -1,20 +1,24 @@
 FROM python:2.7-alpine
 
-RUN mkdir /app
+# Create and set the working directory
 WORKDIR /app
 
-COPY requirements.txt requirements.txt
+# Copy requirements and install dependencies
+COPY requirements.txt .
 RUN pip install -r requirements.txt
 
+# Copy the entire application
 COPY . .
 
+# Set the maintainer and version labels
 LABEL maintainer="WebMagic Informatica <info@webmagicinformatica.com>" \
       version="1.0"
 
-# set the FLASK_APP environment variable
+# Set the FLASK_APP environment variable
 ENV FLASK_APP=app.py
 
-# expose port 5000
+# Expose port 5000 (documentation purpose)
 EXPOSE 5000
 
-# CMD flask run --host=0.0.0.0 --port=5000
+# Command to start the Flask app
+CMD ["flask", "run", "--host=0.0.0.0", "--port=5000"]
