@@ -14,4 +14,7 @@ LABEL maintainer="WebMagic Informatica <info@webmagicinformatica.com>" \
 # set the FLASK_APP environment variable
 ENV FLASK_APP=app.py
 
-CMD flask run --host=0.0.0.0 --port=5000
+# expose port 5000
+EXPOSE 5000
+
+# CMD flask run --host=0.0.0.0 --port=5000
